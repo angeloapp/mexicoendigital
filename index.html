@@ -1,219 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>WebVR City Visualization Experiment</title>
+		  <title>Mapa Virtual de la República Mexicana</title>
 		<meta charset="utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE-edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-		<style>
-			body {
-				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-				color: #eee;
-				overflow: hidden;
-				background: rgb(40, 40, 40);
-
-				height: 100%;
-				width: 100%;
-				margin: 0px;
-				padding: 0px;
-
-				/* for all svg icons */
-				fill: rgba(200, 200, 200, 0.5);
-			}
-
-			canvas {
-				width: 100% !important;
-				height: 100% !important;
-				position: absolute;
-				top: 0;
-				left: 0;
-			}
-
-			#video {
-				display: none;
-			}
-
-			#controls {
-				position: absolute;
-				bottom: 44px;
-				/*left: 20px;*/
-				background-color: rgba(80, 80, 80, 0.6);
-				z-index: 2;
-				padding: 20px 20px 0 20px;
-			}
-
-			#controls > div {
-				padding-bottom: 20px;
-			}
-
-			#info {
-				z-index: 100;
-				position: absolute;
-				left: 10px;
-				top: 10px;
-
-				border-radius: 5px;
-				box-sizing: border-box;
-			}
-
-			#info.open {
-				background-color: rgba(20, 20, 20, 0.5);
-			}
-
-			#info > article {
-				display: none;
-
-				margin: 0 0 0 40px;
-				padding: 10px;
-				width: 350px;
-
-				font-size: 14px;
-				text-shadow: 0 1px 0 rgba( 255,255,255,.2 ), 0 -1px 0 rgba( 0,0,0,.2 );
-			}
-
-			a,
-			a:visited {
-				color: #eee;
-			}
-
-			#info.open > article {
-				display: block;
-			}
-
-			#infobutton {
-				width: 20px;
-				height: 20px;
-				margin: 10px;
-				float: left;
-				cursor: pointer;
-			}
-
-			h1 {
-				font-size: 16px;
-				margin: 0 0 4px;
-			}
-
-			#buttons > * {
-				margin-left: 20px;
-			}
-
-			#buttons > *:first-child {
-				margin-left: 0;
-			}
-
-			:-webkit-full-screen {
-				cursor: none;
-			}
-
-			:-moz-full-screen {
-				cursor: none;
-			}
-
-			#connection-info {
-				z-index: 100;
-				position: absolute;
-				width: 280px;
-				height: 280px;
-				bottom: 44px;
-				right: 0;
-				/*margin: 10px;*/
-				/*border: rgba(100, 100, 100, 0.6) solid 2px;*/
-			}
-
-			#connection-info.min {
-				width: 20px;
-				height: 20px;
-			}
-
-			#connection-info.min #qrcode {
-				padding: 0;
-			}
-
-			#qrcode {
-				padding: 40px;
-				background-color: white;
-			}
-
-			#qrcode > img {
-				width: 100%;
-				height: 100%;
-			}
-
-			#minimize {
-				position: absolute;
-				width: 0px;
-				height: 0px;
-				top: 2px;
-				right: 2px;
-				border: 10px transparent solid;
-				border-top: 15px darkgrey solid;
-			}
-
-			#minimize:hover {
-				border-top: 15px black solid;
-			}
-
-			#connection-info.min #minimize {
-				display: none;
-			}
-
-			footer {
-				z-index: 1;
-				position: fixed;
-				bottom: 0;
-				left: 0;
-				box-sizing: border-box;
-				width: 100%;
-				height: 44px;
-				padding: 10px;
-				overflow: hidden;
-				background-color: rgba(80, 80, 80, 0.6);
-			}
-
-			.vizicities-attribution {
-				position: fixed;
-				bottom: 0;
-				right: 0;
-				z-index: 2;
-				padding: 10px 4px;
-				font-size: 10px;
-			}
-
-			.vizicities-attribution a,
-			.vizicities-attribution a:visited {
-				color: #ffffff;
-				text-decoration: none;
-			}
-
-			#hmd-info {
-				position: absolute;
-				right: 0;
-				top: 0;
-				font-size: 10px;
-				padding: 4px;
-			}
-
-			#hmd-info.has-hmd {
-				color: rgb(0, 255, 0);
-			}
-
-			h2 {
-				font-size: 1em;
-			}
-		</style>
-	</head>
-	<body>
+		<link rel="stylesheet" href="style.css">
+    <body>
 		<div id="controls">
 			<div id="dataviz-info"></div>
 			<div id="buttons">
-				<button id="fs">FS</button>
-				<button id="vr" disabled>VR</button>
+				<button id="fs">fullscreen</button>
+				<button id="vr" disabled>virtual</button>
 				<span>
-					<input id="location" type="text" placeholder="Search for a location"/>
-					<button id="search">Go</button>
+					  <input id="location" type="text" placeholder="busca una ubicación"/>
+					<button id="search">ir</button>
 				</span>
 				<select id="visualization">
-					<option value="">None</option>
+					<option value="">capas</option>
 					<option value="income">Income Data (Bars)</option>
 					<option value="income-bubbles">Income Data (Bubbles)</option>
 					<option value="population">Population</option>
@@ -239,14 +43,16 @@
 					C102.666,81.773,81.773,102.666,56,102.666z"></path>
 			</svg>
 			<article>
-				<h1>WebVR 3D Map Experiment</h1>
-				<p>This demonstrates an experimental virtual reality interaction using a mobile browser to fly around a representation of a real-world city. Enter the name of a location in the text box below to search for a location to visit. Scan (or right-click and copy) the QR code for a link to open in mobile Chrome or Firefox. Touch and drag in any direction to move around the space. You will move in whatever direction you're dragging, taking into account the direction the device is pointing. You can shake the phone quickly to turn around 180 degrees.</p>
+				<h1>Mapa virtual</h1>
+				<p>Inspecciona virtualmente diversos aspectos de la zona utilizando datos abiertos.</p>
 
 				<p>If you don't have an Android phone, you can look around with WASD keys and move with the arrow keys</p>
 
 				<p>Load this site in an experimental WebVR build of either <a href="http://mozvr.com/downloads.html" target="_new">Firefox</a> or <a href="http://blog.tojicode.com/2014/07/bringing-vr-to-chrome.html" target="_new">Chrome</a>. When the Rift is connected, hit the "Enter" key or click the "VR" button to enter full-screen VR mode. Hit "Escape" to exit VR and release the mouse cursor.</p>
 
-				<p>Code by <a href="http://chirls.com">Brian Chirls</a> is available on <a href="https://github.com/povdocs/webvr-cities/">GitHub</a>.</p>
+        <p>Desarrollado por Fractal Labs y la Estrategia Digital Nacional</p>
+
+				<p>Basado en <a href="https://github.com/povdocs/webvr-cities/">código</a> de <a href="http://chirls.com">Brian Chirls</a>. Utiliza Vizicities que a su vez utiliza Three.js. Con datos de datos.gob.mx y Open Street Map</p>
 			</article>
 		</div>
 		<div id="connection-info" style="display: none;">

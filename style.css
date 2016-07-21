@@ -1,0 +1,194 @@
+body {
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		color: #eee;
+		overflow: hidden;
+		background: rgb(40, 40, 40);
+
+		height: 100%;
+		width: 100%;
+		margin: 0px;
+		padding: 0px;
+
+		/* for all svg icons */
+		fill: rgba(200, 200, 200, 0.5);
+}
+
+canvas {
+		width: 100% !important;
+		height: 100% !important;
+		position: absolute;
+		top: 0;
+		left: 0;
+}
+
+#video {
+		display: none;
+}
+
+#controls {
+		position: absolute;
+		bottom: 44px;
+		/*left: 20px;*/
+		background-color: rgba(80, 80, 80, 0.6);
+		z-index: 2;
+		padding: 20px 20px 0 20px;
+}
+
+#controls > div {
+		padding-bottom: 20px;
+}
+
+#info {
+		z-index: 100;
+		position: absolute;
+		left: 10px;
+		top: 10px;
+
+		border-radius: 5px;
+		box-sizing: border-box;
+}
+
+#info.open {
+		background-color: rgba(20, 20, 20, 0.5);
+}
+
+#info > article {
+		display: none;
+
+		margin: 0 0 0 40px;
+		padding: 10px;
+		width: 350px;
+
+		font-size: 14px;
+		text-shadow: 0 1px 0 rgba( 255,255,255,.2 ), 0 -1px 0 rgba( 0,0,0,.2 );
+}
+
+a,
+a:visited {
+		color: #eee;
+}
+
+#info.open > article {
+		display: block;
+}
+
+#infobutton {
+		width: 20px;
+		height: 20px;
+		margin: 10px;
+		float: left;
+		cursor: pointer;
+}
+
+h1 {
+		font-size: 16px;
+		margin: 0 0 4px;
+}
+
+#buttons > * {
+		margin-left: 20px;
+}
+
+#buttons > *:first-child {
+		margin-left: 0;
+}
+
+:-webkit-full-screen {
+		cursor: none;
+}
+
+:-moz-full-screen {
+		cursor: none;
+}
+
+#connection-info {
+		z-index: 100;
+		position: absolute;
+		width: 280px;
+		height: 280px;
+		bottom: 44px;
+		right: 0;
+		/*margin: 10px;*/
+		/*border: rgba(100, 100, 100, 0.6) solid 2px;*/
+}
+
+#connection-info.min {
+		width: 20px;
+		height: 20px;
+}
+
+#connection-info.min #qrcode {
+		padding: 0;
+}
+
+#qrcode {
+		padding: 40px;
+		background-color: white;
+}
+
+#qrcode > img {
+		width: 100%;
+		height: 100%;
+}
+
+#minimize {
+		position: absolute;
+		width: 0px;
+		height: 0px;
+		top: 2px;
+		right: 2px;
+		border: 10px transparent solid;
+		border-top: 15px darkgrey solid;
+}
+
+#minimize:hover {
+		border-top: 15px black solid;
+}
+
+#connection-info.min #minimize {
+		display: none;
+}
+
+footer {
+		z-index: 1;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		box-sizing: border-box;
+		width: 100%;
+		height: 44px;
+		padding: 10px;
+		overflow: hidden;
+		background-color: rgba(80, 80, 80, 0.6);
+}
+
+.vizicities-attribution {
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		z-index: 2;
+		padding: 10px 4px;
+		font-size: 10px;
+}
+
+.vizicities-attribution a,
+.vizicities-attribution a:visited {
+		color: #ffffff;
+		text-decoration: none;
+}
+
+#hmd-info {
+		position: absolute;
+		right: 0;
+		top: 0;
+		font-size: 10px;
+		padding: 4px;
+}
+
+#hmd-info.has-hmd {
+		color: rgb(0, 255, 0);
+}
+
+h2 {
+		font-size: 1em;
+}
