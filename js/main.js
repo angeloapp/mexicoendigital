@@ -1,89 +1,89 @@
 (function () {
-	var PEER_API_KEY = 'af7e49eb-ae1a-45dd-8305-03d5b6c07ca4',
+	var PEER_API_KEY = '6574862e-db55-4f97-af24-8fdbe01c11e4',
 
-		START_LOCATION = 'Times Square, New York',
-		START_LAT = 40.7564812,
-		START_LON = -73.9861832,
+		  START_LOCATION = 'Hipódromo Condesa, CDMX',
+		  START_LAT = 19.411,
+		  START_LON = -99.17,
 
-		DEFAULT_HEIGHT = 130,
-		FOG = 250,
-		MOVE_SPEED = 80,
-		SLOW_SPEED = MOVE_SPEED / 4,
-		CITY_SCALE = 6,
-		COLLISION_RADIUS = 1,
-		NEAR = 1,
-		FAR = 10000,
+		  DEFAULT_HEIGHT = 130,
+		  FOG = 250,
+		  MOVE_SPEED = 140,
+		  SLOW_SPEED = MOVE_SPEED / 4,
+		  CITY_SCALE = 6,
+		  COLLISION_RADIUS = 1,
+		  NEAR = 1,
+		  FAR = 10000,
 
-		// Three.js stuff
-		camera,
-		body,
-		pointer,
-		scene,
-		renderer,
-		vrEffect,
-		vrControls,
-		vrMouse,
-		walkControl,
-		cityContainer,
+		  // Three.js stuff
+		  camera,
+		  body,
+		  pointer,
+		  scene,
+		  renderer,
+		  vrEffect,
+		  vrControls,
+		  vrMouse,
+		  walkControl,
+		  cityContainer,
 
-		//octree, //for picking, collision detection
-		rayCaster = new THREE.Raycaster(),
+		  //octree, //for picking, collision detection
+		  rayCaster = new THREE.Raycaster(),
 
-		depthTarget,
-		sceneTarget,
-		depthMaterial,
-		ssaoEffect,
+		  depthTarget,
+		  sceneTarget,
+		  depthMaterial,
+		  ssaoEffect,
 
-		//VIZI stuff
-		viziWorld,
+		  //VIZI stuff
+		  viziWorld,
 
-		dataVizes = {
-			'': {
-				height: DEFAULT_HEIGHT
-			}
-		},
+		  dataVizes = {
+			  '': {
+				  height: DEFAULT_HEIGHT
+			  }
+		  },
 
-		keys = {
-			forward: false,
-			left: false,
-			backward: false,
-			right: false,
-			w: false,
-			a: false,
-			s: false,
-			d: false
-		},
-		moving = false,
+		  keys = {
+			  forward: false,
+			  left: false,
+			  backward: false,
+			  right: false,
+			  w: false,
+			  a: false,
+			  s: false,
+			  d: false
+		  },
+		  moving = false,
 
-		moveVector = new THREE.Vector3(),
-		leftVector = new THREE.Vector3(),
-		scratchVector = new THREE.Vector3(),
-		scratchVector2 = new THREE.Vector3(),
-		leftRotateMatrix = new THREE.Matrix4().makeRotationAxis(new THREE.Vector3( 0, 1, 0 ), Math.PI / 2),
+		  moveVector = new THREE.Vector3(),
+		  leftVector = new THREE.Vector3(),
+		  scratchVector = new THREE.Vector3(),
+		  scratchVector2 = new THREE.Vector3(),
+		  leftRotateMatrix = new THREE.Matrix4().makeRotationAxis(new THREE.Vector3( 0, 1, 0 ), Math.PI / 2),
 
-		lookTarget = new THREE.Vector3(),
-		lookLatitude = 0,
-		lookLongitude = -Math.PI / 2,
+		  lookTarget = new THREE.Vector3(),
+		  lookLatitude = 0,
+		  lookLongitude = -Math.PI / 2,
 
-		pickTargets = [],
+		  pickTargets = [],
 
-		fsButton = document.getElementById('fs'),
-		vrButton = document.getElementById('vr'),
-		infobutton = document.getElementById('infobutton'),
-		info = document.getElementById('info'),
-		searchbutton = document.getElementById('search'),
-		locationInput = document.getElementById('location'),
+		  fsButton = document.getElementById('fs'),
+		  vrButton = document.getElementById('vr'),
+		  infobutton = document.getElementById('infobutton'),
+		  info = document.getElementById('info'),
+		  searchbutton = document.getElementById('search'),
+		  locationInput = document.getElementById('location'),
 
-		locationCache = {},
-		searchCallbacks = {},
-		queryHash = {},
+		  locationCache = {},
+		  searchCallbacks = {},
+		  queryHash = {},
 
-		stats,
-		lastTick = 0,
-		clock = new THREE.Clock(),
+		  stats,
+		  lastTick = 0,
+		  clock = new THREE.Clock(),
 
-		activateDataViz,
-		deactivateDataViz;
+		  activateDataViz,
+		  deactivateDataViz;
 
 	function startMoving() {
 		if (!moving) {
@@ -91,7 +91,7 @@
 			moveVector.set(0, 0, -1).applyQuaternion(camera.quaternion);
 
 			//only move along the ground
-			moveVector.setY(0).normalize();
+			//moveVector.setY(0).normalize();
 
 			leftVector.copy(moveVector).applyMatrix4(leftRotateMatrix);
 			moving = true;
@@ -101,7 +101,7 @@
 	function stopMoving() {
 		updatePosition();
 		if (!keys.w && !keys.a && !keys.s && !keys.d &&
-			!keys.forward && !keys.backward && !keys.left && !keys.right) {
+			  !keys.forward && !keys.backward && !keys.left && !keys.right) {
 			moving = false;
 		}
 	}
@@ -117,10 +117,10 @@
 
 	function updatePosition() {
 		var delta = clock.getDelta(),
-			cos,
-			distance,
-			octreeResults,
-			intersections;
+			  cos,
+			  distance,
+			  octreeResults,
+			  intersections;
 
 		//return;
 		delta = Math.min(delta, 0.2); //throttle speed in case we dropped a lot of frames
@@ -177,7 +177,7 @@
 
 	function resize() {
 		var width = window.innerWidth,
-			height = window.innerHeight;
+			  height = window.innerHeight;
 
 		_.each(dataVizes, function (dataViz) {
 			if (dataViz && dataViz.resize) {
@@ -198,7 +198,7 @@
 
 	function render() {
 		var tick = Date.now(),
-			delta = tick - lastTick;
+			  delta = tick - lastTick;
 
 		//update any active dataviz scenes
 		_.each(dataVizes, function (dataViz) {
@@ -318,7 +318,7 @@
 
 		vrEffect.addEventListener('devicechange', function () {
 			var hmd = vrEffect.hmd(),
-				info = document.getElementById('hmd-info');
+				  info = document.getElementById('hmd-info');
 
 			if (hmd) {
 				vrButton.disabled = false;
@@ -331,18 +331,18 @@
 
 	function initDataViz() {
 		var defaultLayers = [
-				//'population'/*,
-				'buildings',
-				'map'//*/
-			],
-			info = document.getElementById('dataviz-info'),
-			select = document.getElementById('visualization'),
-			layers = {};
+			//'population'/*,
+			'buildings',
+			'map'//*/
+		],
+			  info = document.getElementById('dataviz-info'),
+			  select = document.getElementById('visualization'),
+			  layers = {};
 
 		function notifyLayersLoaded(dataViz) {
 			var k,
-				layer,
-				layerParams = {};
+				  layer,
+				  layerParams = {};
 
 			if (!dataViz || dataViz.notifiedLayers) {
 				return;
@@ -370,7 +370,7 @@
 
 		function loadLayer(name, obj) {
 			var layer = layers[name],
-				switchboard = new VIZI.BlueprintSwitchboard(obj);
+				  switchboard = new VIZI.BlueprintSwitchboard(obj);
 
 			switchboard.addToWorld(viziWorld);
 			layer.switchboard = switchboard;
@@ -427,7 +427,7 @@
 
 		activateDataViz = function (name) {
 			var script,
-				dataViz = dataVizes[name];
+				  dataViz = dataVizes[name];
 
 			_.each(dataVizes, function (dataViz, id) {
 				if (name !== id) {
@@ -436,9 +436,9 @@
 			});
 
 			/*
-			Would like to use something like requirejs to load script,
-			but it's not compatible with vizicities at the moment
-			*/
+			 Would like to use something like requirejs to load script,
+			 but it's not compatible with vizicities at the moment
+			 */
 			if (dataViz === undefined) {
 				dataVizes[name] = null;
 				info.style.display = 'none';
@@ -507,9 +507,9 @@
 
 		window.dataViz = function (name, options) {
 			var active = (name in dataVizes),
-				dataViz = dataVizes[name],
-				lat, lon,
-				width, height;
+				  dataViz = dataVizes[name],
+				  lat, lon,
+				  width, height;
 
 			if (!name || !options || dataViz) {
 				return;
@@ -644,8 +644,8 @@
 
 		function changeLocation(loc) {
 			var latLng = new VIZI.LatLon(parseFloat(loc.lat - 0.003), parseFloat(loc.lon)),
-				pos = viziWorld.project(latLng),
-				cos;
+				  pos = viziWorld.project(latLng),
+				  cos;
 
 			viziWorld.moveToLatLon(latLng);
 			body.position.x = pos.x;
@@ -676,7 +676,7 @@
 		}
 
 		var url = 'http://nominatim.openstreetmap.org/search?addressdetails=1&format=json&q=',
-			loc;
+			  loc;
 
 		if (val) {
 			loc = locationCache[val];
@@ -704,7 +704,7 @@
 			locationCache[val] = null;
 			d3.json(url + encodeURIComponent(val), function(error, response) {
 				var match,
-					callbacks;
+					  callbacks;
 				if (error) {
 					console.warn('Location search failed', val, error);
 					return;
@@ -733,8 +733,8 @@
 
 	function initControls() {
 		var qrCode,
-			connectionInfo = document.getElementById('connection-info'),
-			minimize = document.getElementById('minimize');
+			  connectionInfo = document.getElementById('connection-info'),
+			  minimize = document.getElementById('minimize');
 
 		function lostConnection() {
 			var peer = walkControl.peer();
@@ -753,9 +753,9 @@
 
 		walkControl.addEventListener('open', function (evt) {
 			var peerId = evt.id,
-				url,
-				location = window.location,
-				path;
+				  url,
+				  location = window.location,
+				  path;
 
 			path = location.pathname.split('/');
 			path.pop();
@@ -810,7 +810,7 @@
 
 	function updateQuery(field, val) {
 		var key, v, query = [],
-			url;
+			  url;
 
 		queryHash[field] = val;
 
@@ -834,13 +834,13 @@
 
 	function parseQuery() {
 		var search = window.location.search.substr(1),
-			queries = search.split('&'),
-			select = document.getElementById('visualization');
+			  queries = search.split('&'),
+			  select = document.getElementById('visualization');
 
 		queryHash = queries.reduce(function (previous, current) {
 			var split = current.split('='),
-				key = decodeURIComponent(split[0]),
-				val = decodeURIComponent(split[1]);
+				  key = decodeURIComponent(split[0]),
+				  val = decodeURIComponent(split[1]);
 
 			if (/^\s*\-?\d+(\.\d+)?\s*$/.test(val)) {
 				previous[key] = parseFloat(val);
@@ -900,9 +900,9 @@
 
 		fsButton.addEventListener('click', function () {
 			var fullScreenElement = renderer.domElement,
-				requestFullscreen = fullScreenElement.webkitRequestFullscreen ||
-					fullScreenElement.mozRequestFullScreen ||
-					fullScreenElement.msRequestFullscreen;
+				  requestFullscreen = fullScreenElement.webkitRequestFullscreen ||
+					  fullScreenElement.mozRequestFullScreen ||
+					  fullScreenElement.msRequestFullscreen;
 
 			if (requestFullscreen) {
 				requestFullscreen.call(fullScreenElement);

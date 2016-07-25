@@ -2860,7 +2860,7 @@ var qsfnz = _dereq_('../common/qsfnz');
 var msfnz = _dereq_('../common/msfnz');
 var iqsfnz = _dereq_('../common/iqsfnz');
 /*
-  reference:  
+  reference:
     "Cartographic Projection Procedures for the UNIX Environment-
     A User's Manual" by Gerald I. Evenden,
     USGS Open File Report 90-284and Release 4 Interim Reports (2003)
@@ -3172,10 +3172,10 @@ exports.forward = function(p) {
   else {
 
     // Point is in the opposing hemisphere and is unprojectable
-    // We still need to return a reasonable point, so we project 
-    // to infinity, on a bearing 
+    // We still need to return a reasonable point, so we project
+    // to infinity, on a bearing
     // equivalent to the northern hemisphere equivalent
-    // This is a reasonable approximation for short shapes and lines that 
+    // This is a reasonable approximation for short shapes and lines that
     // straddle the horizon.
 
     x = this.x0 + this.infinity_dist * cosphi * Math.sin(dlon);
@@ -6479,14 +6479,14 @@ if (typeof window === undefined) {
     if (VIZI.DEBUG) console.log("Initialising VIZI.Attribution");
 
     self.options = options || {};
-    
+
     _.defaults(self.options, {});
 
     if (!self.options.element) {
       throw new Error("Required element option missing");
     }
 
-    self.defaultMessage = "<a href='http://vizicities.com' target='_blank'>Powered by ViziCities</a>";
+    self.defaultMessage = "";
 
     self.container = self.createContainer(self.options.element);
 
@@ -6507,7 +6507,7 @@ if (typeof window === undefined) {
   VIZI.Attribution.prototype.add = function(message) {
     var self = this;
     var prefix = "";
-    
+
     if (self.container.innerHTML.length > 0) {
       prefix = " | ";
     }
@@ -6543,7 +6543,7 @@ if (typeof window === undefined) {
  * https://github.com/HenrikJoreteg/wildemitter
  * @author Robin Hawkes - vizicities.com
  */
- 
+
 (function() {
   "use strict";
 
@@ -6584,7 +6584,7 @@ if (typeof window === undefined) {
     var self = this;
 
     self.options = options || {};
-    
+
     _.defaults(self.options, {
       crs: VIZI.CRS.EPSG3857,
       center: new VIZI.LatLon(51.50358, -0.01924),
@@ -6675,7 +6675,7 @@ if (typeof window === undefined) {
   VIZI.World.prototype.pixelsPerMeter = function(latLon, zoom) {
     var self = this;
     zoom = zoom || self.originZoom;
-    
+
     return self.crs.pixelsPerMeter(latLon, zoom);
   };
 
@@ -6812,7 +6812,7 @@ if (typeof window === undefined) {
       var self = this;
 
       options = options || {};
-    
+
       _.defaults(options, {
         convert: true,
         round: false
@@ -6852,7 +6852,7 @@ if (typeof window === undefined) {
       var resolution = self.resolution(zoom);
 
       var mapSize = self.tileSize << zoom;
-      
+
       var crsPoint = new VIZI.Point(
         point.x * resolution - ORIGIN_SHIFT,
         // Convert point so origin is bottom-left not top-left
@@ -6924,7 +6924,7 @@ if (typeof window === undefined) {
     latLonToTile: function(latLon, zoom) {
       var self = this;
       var point = self.latLonToPoint(latLon, zoom);
-      
+
       return self.pointToTile(point);
     },
 
@@ -6934,11 +6934,11 @@ if (typeof window === undefined) {
 
       // Don't move point origin to top-left as we're using TMS
       var point = self.latLonToPoint(latLon, zoom, {convert: false});
-      
+
       return self.pointToTile(point);
     },
 
-    // Find WGS84 coordinates of Google tile center 
+    // Find WGS84 coordinates of Google tile center
     tileToLatLon: function(tile, zoom) {
       var self = this;
       var bounds = self.tileBoundsLatLon(tile, zoom);
@@ -6994,7 +6994,7 @@ if (typeof window === undefined) {
       var dLat = lat2 - lat1;
       var dLon = lon2 - lon1;
       var a = (
-         (1 - cos(dLat)) + 
+         (1 - cos(dLat)) +
          (1 - cos(dLon)) * cos(lat1) * cos(lat2)
       ) / 2;
 
@@ -7082,7 +7082,7 @@ if (typeof window === undefined) {
     var self = this;
 
     self.options = options || {};
-    
+
     _.defaults(self.options, {
       fov: 40,
       near: 2,
@@ -7200,7 +7200,7 @@ if (typeof window === undefined) {
     var self = this;
 
     self.options = options || {};
-    
+
     _.defaults(self.options, {
       antialias: false,
       fogColour: 0xffffff,
@@ -7241,7 +7241,7 @@ if (typeof window === undefined) {
     directionalLight2.position.z = -1;
 
     scene.add(directionalLight2);
-    
+
     return scene;
   };
 
@@ -7289,7 +7289,7 @@ if (typeof window === undefined) {
 
   VIZI.Scene.prototype.render = function(camera) {
     var self = this;
-    
+
     if (!self.scene) {
       throw new Error("Scene is required for render");
     }
@@ -7322,7 +7322,7 @@ if (typeof window === undefined) {
     VIZI.EventEmitter.call(self);
 
     self.options = options || {};
-    
+
     _.defaults(self.options, {});
 
     if (!camera) {
@@ -7461,7 +7461,7 @@ if (typeof window === undefined) {
     });
 
     self.collectTiles();
-    
+
     return self.tiles;
   };
 
@@ -7640,7 +7640,7 @@ if (typeof window === undefined) {
 /**
  * Blueprint GPX input
  * @author Robin Hawkes - vizicities.com
- */  
+ */
 
   // input: {
   //   type: "BlueprintInputGPX",
@@ -7692,7 +7692,7 @@ if (typeof window === undefined) {
 
       // Process GPX into a JSON format
       var jxon = JXON.build(data.querySelector("gpx"));
-      
+
       self.emit("dataReceived", jxon);
     });
   };
@@ -7704,7 +7704,7 @@ if (typeof window === undefined) {
 /**
  * Blueprint GeoJSON input
  * @author Robin Hawkes - vizicities.com
- */  
+ */
 
   // input: {
   //   type: "BlueprintInputGeoJSON",
@@ -7756,7 +7756,7 @@ if (typeof window === undefined) {
         console.warn(error);
         return;
       }
-      
+
       self.emit("dataReceived", data);
     });
   };
@@ -7776,7 +7776,7 @@ if (typeof window === undefined) {
     if (!self.options.tilePath) {
       throw new Error("Required tile path option missing");
     }
-    
+
     if (VIZI.DEBUG) console.log("Requesting tiles", tiles);
 
     _.each(tiles, function(tile, key) {
@@ -7792,7 +7792,7 @@ if (typeof window === undefined) {
           console.warn(error);
           return;
         }
-        
+
         self.emit("tileReceived", data, tile);
       });
     });
@@ -7805,7 +7805,7 @@ if (typeof window === undefined) {
 /**
  * Blueprint KML input
  * @author Robin Hawkes - vizicities.com
- */  
+ */
 
   // input: {
   //   type: "BlueprintInputKML",
@@ -7861,7 +7861,7 @@ if (typeof window === undefined) {
 
       // Process coordinates
       self.processCoordinates(jxon);
-      
+
       self.emit("dataReceived", jxon);
     });
   };
@@ -7888,7 +7888,7 @@ if (typeof window === undefined) {
 /**
  * Blueprint map tiles input
  * @author Robin Hawkes - vizicities.com
- */  
+ */
 
   // input: {
   //   type: "BlueprintInputMapTiles",
@@ -7998,7 +7998,7 @@ if (typeof window === undefined) {
 /**
  * Blueprint building tiles output
  * @author Robin Hawkes - vizicities.com
- */  
+ */
 
   // output: {
   //   type: "BlueprintOutputBuildingTiles",
@@ -8107,7 +8107,7 @@ if (typeof window === undefined) {
         mesh.visible = false;
       });
     });
-    
+
     // TODO: Either remove previous tiles or prevent event if grid hasn't moved
     // There's a huge hang-up when zooming in due to re-loading and processing tiles
     grid.on("enabled", function() {
@@ -8232,15 +8232,15 @@ if (typeof window === undefined) {
     //   // TODO: Add floor/level-based heights
     //   // << rounds the height down
     //   // var height = (feature.height * metersPerLevel * scalingFactor << 0);
-      
+
     //   // Multiply height in meters by pixels per meter ratio at latitude
     //   height *= pixelsPerMeter.y;
 
     //   var extrudeSettings = { amount: height, bevelEnabled: false };
-      
+
     //   var geom = new THREE.ExtrudeGeometry( shape, extrudeSettings );
     //   geom.computeFaceNormals();
-      
+
     //   var mesh = new THREE.Mesh(geom);
 
     //   mesh.position.y = height;
@@ -8301,7 +8301,7 @@ if (typeof window === undefined) {
     // Proxy world pixelPerMeter
     // TODO: Find a better way so this doesn't have to be duplicated for every Blueprint
     var pixelsPerMeter = function(latLon, zoom) {
-      zoom = zoom || originZoom; 
+      zoom = zoom || originZoom;
       return crs.pixelsPerMeter(latLon, zoom);
     };
 
@@ -8354,7 +8354,7 @@ if (typeof window === undefined) {
       // Create inner shapes (holes)
       _.each(inners, function(inner, index) {
         var innerPath = new THREE.Path();
-        
+
         _.each(inner, function(coord, index) {
           var latLon = new VIZI.LatLon(coord[1], coord[0]);
           var geoCoord = project(latLon);
@@ -8378,13 +8378,13 @@ if (typeof window === undefined) {
       // TODO: Add floor/level-based heights
       // << rounds the height down
       // var height = (feature.height * metersPerLevel * scalingFactor << 0);
-      
+
       // Multiply height in meters by pixels per meter ratio at latitude
       height *= ppm.y;
       minHeight *= ppm.y;
 
       var extrudeSettings = { amount: height - minHeight, bevelEnabled: false };
-      
+
       var geom = new THREE.ExtrudeGeometry( shape, extrudeSettings );
       geom.computeFaceNormals();
 
@@ -8397,7 +8397,7 @@ if (typeof window === undefined) {
           }
         }
       }
-      
+
       var mesh = new THREE.Mesh(geom);
 
       mesh.position.y = height;
@@ -8446,7 +8446,7 @@ if (typeof window === undefined) {
 /**
  * Blueprint choropleth output
  * @author Robin Hawkes - vizicities.com
- */  
+ */
 
   // output: {
   //   type: "BlueprintOutputChoropleth",
@@ -8605,7 +8605,7 @@ if (typeof window === undefined) {
 /**
  * Blueprint collada output
  * @author Robin Hawkes - vizicities.com
- */ 
+ */
 
   // output: {
   //   type: "BlueprintOutputCollada",
@@ -8657,7 +8657,7 @@ if (typeof window === undefined) {
 
     _.each(data, function(item) {
       var path = (self.options.modelPathPrefix) ? self.options.modelPathPrefix + item.modelPath : item.modelPath;
-    
+
       loader.load(path, function (collada) {
         var dae = collada.scene;
         var latLon = new VIZI.LatLon(item.coordinates[1], item.coordinates[0]);
@@ -8675,7 +8675,7 @@ if (typeof window === undefined) {
 
         // Scale value below 1 indicates collada units are in metres
         // https://github.com/mrdoob/three.js/blob/master/examples/js/loaders/ColladaLoader.js#L219
-        // if (dae.scale.x < 1) { 
+        // if (dae.scale.x < 1) {
         // Scale up model from meters to pixels
         dae.scale.x = dae.scale.y = dae.scale.z = dae.scale.x * pixelsPerMeter.y;
         dae.updateMatrix();
@@ -8699,7 +8699,7 @@ if (typeof window === undefined) {
 /**
  * Blueprint debug lines output
  * @author Robin Hawkes - vizicities.com
- */  
+ */
 
   // output: {
   //   type: "BlueprintOutputDebugLines",
@@ -8797,7 +8797,7 @@ if (typeof window === undefined) {
 /**
  * Blueprint debug points output
  * @author Robin Hawkes - vizicities.com
- */  
+ */
 
   // output: {
   //   type: "BlueprintOutputDebugPoints",
@@ -8915,7 +8915,7 @@ if (typeof window === undefined) {
 /**
  * Blueprint image tiles output
  * @author Robin Hawkes - vizicities.com
- */  
+ */
 
   // output: {
   //   type: "BlueprintOutputImageTiles",
@@ -9221,7 +9221,7 @@ if (typeof window === undefined) {
 /**
  * Blueprint switchboard
  * @author Robin Hawkes - vizicities.com
- */  
+ */
 
   VIZI.BlueprintSwitchboard = function(config) {
     var self = this;
@@ -9337,7 +9337,7 @@ if (typeof window === undefined) {
         actionObject[actionName].apply(actionObject, actionArgs);
       });
     });
-    
+
     // TODO: Don't call init until addToWorld() is called
     // TODO: Prevent possible race condition on initialisation triggers
     // self.input.init();
@@ -9349,7 +9349,7 @@ if (typeof window === undefined) {
   VIZI.BlueprintSwitchboard.prototype.createViziClassInstance = function(className, args) {
     if (!className) {
       throw new Error("Required class name missing");
-    } 
+    }
 
     if (!VIZI[className]) {
       throw new Error("VIZI." + className + " class could not be found");
@@ -9367,7 +9367,7 @@ if (typeof window === undefined) {
   var dRegex = /\[(\d+)\]/;
   VIZI.BlueprintSwitchboard.prototype.getValueByKeys = function(object, keys) {
     var output = object;
-    
+
     _.each(keys, function(key) {
       if (!output) return null;
 
@@ -9544,7 +9544,7 @@ if (typeof window === undefined) {
 
     self.controls.update();
   };
-  
+
   VIZI.ControlsMap.prototype.getZoom = function() {
     var self = this;
     return self.controls.offset.length();
@@ -9639,7 +9639,7 @@ if (typeof window === undefined) {
 
     self.controls.update();
   };
-  
+
   VIZI.ControlsOrbit.prototype.getZoom = function() {
     var self = this;
     return self.controls.offset.length();
@@ -16185,7 +16185,7 @@ var JXON = new (function () {
     if (oParentObj instanceof String || oParentObj instanceof Number || oParentObj instanceof Boolean) {
       oParentEl.appendChild(oXMLDoc.createTextNode(oParentObj.toString())); /* verbosity level is 0 */
     } else if (oParentObj.constructor === Date) {
-      oParentEl.appendChild(oXMLDoc.createTextNode(oParentObj.toGMTString()));    
+      oParentEl.appendChild(oXMLDoc.createTextNode(oParentObj.toGMTString()));
     }
 
     for (var sName in oParentObj) {
@@ -16217,10 +16217,10 @@ var JXON = new (function () {
 
   this.build = function (oXMLParent, nVerbosity /* optional */, bFreeze /* optional */, bNesteAttributes /* optional */) {
     var _nVerb = arguments.length > 1 && typeof nVerbosity === "number" ? nVerbosity & 3 : /* put here the default verbosity level: */ 1;
-    return createObjTree(oXMLParent, _nVerb, bFreeze || false, arguments.length > 3 ? bNesteAttributes : _nVerb === 3);    
+    return createObjTree(oXMLParent, _nVerb, bFreeze || false, arguments.length > 3 ? bNesteAttributes : _nVerb === 3);
   };
 
-  this.unbuild = function (oObjTree) {    
+  this.unbuild = function (oObjTree) {
     var oNewDoc = document.implementation.createDocument("", "", null);
     loadObjTree(oNewDoc, oNewDoc, oObjTree);
     return oNewDoc;
@@ -16424,7 +16424,7 @@ THREE.MapControls = function ( object, domElement ) {
   //   // get X column of matrix
   //   panOffset.set( te[ 0 ], te[ 1 ], te[ 2 ] );
   //   panOffset.multiplyScalar( - distance );
-    
+
   //   pan.add( panOffset );
 
   // };
@@ -16437,11 +16437,11 @@ THREE.MapControls = function ( object, domElement ) {
   //   // get Y column of matrix
   //   panOffset.set( te[ 4 ], te[ 5 ], te[ 6 ] );
   //   panOffset.multiplyScalar( distance );
-    
+
   //   pan.add( panOffset );
 
   // };
-  
+
   // pass in x,y of change desired in pixel space,
   // right and down are positive
   this.pan = function ( deltaX, deltaY ) {
@@ -16540,7 +16540,7 @@ THREE.MapControls = function ( object, domElement ) {
 
     // restrict radius to be between desired limits
     radius = Math.max( this.minDistance, Math.min( this.maxDistance, radius ) );
-    
+
     // move target to panned location
     this.target.add( pan );
 
@@ -16684,7 +16684,7 @@ THREE.MapControls = function ( object, domElement ) {
 
       panEnd.set( event.clientX, event.clientY );
       panDelta.subVectors( panEnd, panStart );
-      
+
       scope.pan( panDelta.x, panDelta.y );
 
       panStart.copy( panEnd );
@@ -16744,7 +16744,7 @@ THREE.MapControls = function ( object, domElement ) {
   function onKeyDown( event ) {
 
     if ( scope.enabled === false || scope.noKeys === true || scope.noPan === true ) return;
-    
+
     switch ( event.keyCode ) {
 
       case scope.keys.UP:
@@ -16880,7 +16880,7 @@ THREE.MapControls = function ( object, domElement ) {
 
         panEnd.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
         panDelta.subVectors( panEnd, panStart );
-        
+
         scope.pan( panDelta.x, panDelta.y );
 
         panStart.copy( panEnd );
@@ -17085,7 +17085,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 		// get X column of matrix
 		panOffset.set( te[ 0 ], te[ 1 ], te[ 2 ] );
 		panOffset.multiplyScalar( - distance );
-		
+
 		pan.add( panOffset );
 
 	};
@@ -17098,11 +17098,11 @@ THREE.OrbitControls = function ( object, domElement ) {
 		// get Y column of matrix
 		panOffset.set( te[ 4 ], te[ 5 ], te[ 6 ] );
 		panOffset.multiplyScalar( distance );
-		
+
 		pan.add( panOffset );
 
 	};
-	
+
 	// pass in x,y of change desired in pixel space,
 	// right and down are positive
 	this.pan = function ( deltaX, deltaY ) {
@@ -17201,7 +17201,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 		// restrict radius to be between desired limits
 		radius = Math.max( this.minDistance, Math.min( this.maxDistance, radius ) );
-		
+
 		// move target to panned location
 		this.target.add( pan );
 
@@ -17345,7 +17345,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 			panEnd.set( event.clientX, event.clientY );
 			panDelta.subVectors( panEnd, panStart );
-			
+
 			scope.pan( panDelta.x, panDelta.y );
 
 			panStart.copy( panEnd );
@@ -17405,7 +17405,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 	function onKeyDown( event ) {
 
 		if ( scope.enabled === false || scope.noKeys === true || scope.noPan === true ) return;
-		
+
 		switch ( event.keyCode ) {
 
 			case scope.keys.UP:
@@ -17541,7 +17541,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 				panEnd.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
 				panDelta.subVectors( panEnd, panStart );
-				
+
 				scope.pan( panDelta.x, panDelta.y );
 
 				panStart.copy( panEnd );

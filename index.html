@@ -52,7 +52,7 @@
 
         <p>Desarrollado por Fractal Labs y la Estrategia Digital Nacional</p>
 
-				<p>Basado en <a href="https://github.com/povdocs/webvr-cities/">código</a> de <a href="http://chirls.com">Brian Chirls</a>. Utiliza Vizicities que a su vez utiliza Three.js. Con datos de datos.gob.mx y Open Street Map</p>
+				<p>Basado en <a href="https://github.com/povdocs/webvr-cities/">código</a> de <a href="http://chirls.com">Brian Chirls</a>. Utiliza Vizicities que a su vez utiliza Three.js. Con datos de datos.gob.mx, Open Street Map y carto.com</p>
 			</article>
 		</div>
 		<div id="connection-info" style="display: none;">
@@ -63,32 +63,50 @@
 			<div id="location-name"></div>
 			<div id="hmd-info"></div>
 		</footer>
+    <script src="js/lib/three.js"
 		<script src="js/lib/vizi.js"></script>
 		<script src="js/lib/DeviceOrientationControls.js"></script>
 		<script src="js/lib/VRStereoEffect.js"></script>
 		<script src="js/lib/VRControls.js"></script>
-
 		<script src="js/lib/stats.min.js"></script>
-
 		<script src="https://skyway.io/dist/0.3/peer.js"></script>
 		<script src="js/RemoteWalkControl.js"></script>
-
 		<script src="js/lib/shaders/SSAOShader.js"></script>
 		<script src="js/lib/postprocessing/ShaderPass.js"></script>
-
 		<script src="js/lib/qrcode.js"></script>
-
 		<script src="js/BlueprintInputCSV.js"></script>
 		<script src="js/BlueprintOutputBars.js"></script>
 		<script src="js/BlueprintOutputBarTiles.js"></script>
 		<script src="js/BlueprintOutputParticleTiles.js"></script>
-
 		<!-- for population data viz. would ideally load this later with
 		requirejs, but it don't work with vizicities -->
 		<script src="js/lib/rhill-voronoi-core.js"></script>
 		<script src="js/lib/QuadTree.js"></script>
-
 		<script src="js/main.js" type="text/javascript"></script>
 
+    <!-- cortinillas -->
+    <div class="cortinilla" id="cortinilla0"></div>
+    <div class="cortinilla" id="cortinilla1"></div>
+    <div class="cortinilla" id="cortinilla2"></div>
+    <script type="text/javascript">
+     function showIt() {
+         document.getElementById("cortinilla1").style.visibility = "visible";
+         document.getElementById("cortinilla0").style.visibility = "hidden";
+
+     }
+     setTimeout("showIt()", 2000); // after 1.250 sec
+
+     function showIt2() {
+        document.getElementById("cortinilla2").style.visibility = "visible";
+        document.getElementById("cortinilla1").style.visibility = "hidden";
+     }
+     setTimeout("showIt2()", 4000);
+
+     function showIt3() {
+         document.getElementById("cortinilla2").style.visibility = "hidden";
+     }
+     setTimeout("showIt3()", 6000);
+
+    </script>
 	</body>
 </html>

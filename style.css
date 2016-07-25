@@ -192,3 +192,28 @@ footer {
 h2 {
 		font-size: 1em;
 }
+
+.cortinilla {
+    position: absolute !important;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index:999999 !important;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#cortinilla0{
+    background-color:#fff;
+    background-image: url("images/ring-alt.gif");
+}
+
+#cortinilla1{
+    background-color:#fff;
+    background-image: url("images/logo.png");
+    visibility: hidden;
+}
+#cortinilla2{
+    background-color:#fff;
+    background-image: url("images/mx.jpg");
+    visibility: hidden;
+
+}
