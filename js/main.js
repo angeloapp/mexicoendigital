@@ -12,7 +12,7 @@
 		CITY_SCALE = 6,
 		COLLISION_RADIUS = 1,
 		NEAR = 1,
-		FAR = 10000,
+		FAR = 1000,
 
 		// Three.js stuff
 		camera,
