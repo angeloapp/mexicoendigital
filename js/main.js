@@ -331,13 +331,14 @@
 
 	function initDataViz() {
 		var defaultLayers = [
-			//'population'/*,
-			'buildings',
-			'map'//*/
-		],
-			  info = document.getElementById('dataviz-info'),
-			  select = document.getElementById('visualization'),
-			  layers = {};
+      'ecobici',
+				//'population'/*,
+				'buildings',
+				'map'//*/
+			],
+			info = document.getElementById('dataviz-info'),
+			select = document.getElementById('visualization'),
+			layers = {};
 
 		function notifyLayersLoaded(dataViz) {
 			var k,
