@@ -1,0 +1,60 @@
+{
+	"input": {
+		"type": "BlueprintInputCSV",
+		"options": {
+			"path": "data/ecobici.csv"
+		}
+	},
+	"output": {
+		"type": "BlueprintOutputBars",
+		"options": {
+			"grids": [{
+				"zoom": 12,
+				"tilesPerDirection": 1,
+				"cullZoom": 8
+			}],
+			"workerURL": "js/lib/vizi-worker.js",
+
+			"scaleHeight": 1,
+			"radius": 10,
+
+			"shape": "sphere",
+
+			"materialType": "MeshPhongMaterial",
+			"materialOptions": {
+				"transparent": true,
+				"opacity": 0.8,
+				"color": null,
+				"emissive": 34816
+			}
+		}
+	},
+	"triggers": [{
+		"triggerObject": "output",
+		"triggerName": "initialised",
+		"triggerArguments": [],
+		"actionObject": "input",
+		"actionName": "requestData",
+		"actionArguments": [],
+		"actionOutput": {}
+	}, {
+		"triggerObject": "input",
+		"triggerName": "dataReceived",
+		"triggerArguments": ["data"],
+		"actionObject": "output",
+		"actionName": "outputBars",
+		"actionArguments": ["data"],
+		"actionOutput": {
+			"data": {
+				"process": "map",
+				"itemsObject": "data",
+				"itemsProperties": "data",
+				"transformation": {
+					  "coordinates": ["lon", "lat"],
+            "height": 200
+				}
+			}
+		}
+	}]
+
+}

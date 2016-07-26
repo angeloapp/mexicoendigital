@@ -331,6 +331,7 @@
 
 	function initDataViz() {
 		var defaultLayers = [
+      'ecobici2',
 				//'population'/*,
 				'buildings',
 				'map'//*/
