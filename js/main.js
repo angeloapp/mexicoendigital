@@ -51,7 +51,9 @@
 			  w: false,
 			  a: false,
 			  s: false,
-			  d: false
+			  d: false,
+        i: false,
+        o: false
 		  },
 		  moving = false,
 
@@ -84,6 +86,7 @@
 
 		  activateDataViz,
 		  deactivateDataViz;
+      current_height = DEFAULT_HEIGHT;
 
 	function startMoving() {
 		if (!moving) {
@@ -91,9 +94,10 @@
 			moveVector.set(0, 0, -1).applyQuaternion(camera.quaternion);
 
 			//only move along the ground
-			//moveVector.setY(0).normalize();
+			moveVector.setY(0).normalize();
 
 			leftVector.copy(moveVector).applyMatrix4(leftRotateMatrix);
+
 			moving = true;
 		}
 	}
@@ -107,6 +111,9 @@
 	}
 
 	function updateHeight(height) {
+    height = Math.max(height,1);//underworld disabled
+    current_height = height;
+    console.log("new height: ", height);
 		MOVE_SPEED = Math.max(5, 180 * height / 100);
 		SLOW_SPEED = Math.max(5, 180 / 4 * height / 100);
 		if (body) {
@@ -957,7 +964,11 @@
 				}
 			} else if (evt.keyCode === 13) {
 				vrEffect.requestFullScreen();
-			}
+			} else if (evt.keyCode === 'I'.charCodeAt(0)) {
+        updateHeight( current_height - 1.3);
+      } else if (evt.keyCode === 'O'.charCodeAt(0)) {
+        updateHeight( current_height + 1.3);
+      }
 		}, false);
 
 		window.addEventListener('keyup', function (evt) {
@@ -985,7 +996,11 @@
 			} else if (evt.keyCode === 'D'.charCodeAt(0)) {
 				keys.d = false;
 				stopMoving();
-			}
+			} else if (evt.keyCode === 'I'.charCodeAt(0)) {
+
+      } else if (evt.keyCode === 'O'.charCodeAt(0)) {
+
+      }
 		}, false);
 
 		window.addEventListener('touchend', function () {
