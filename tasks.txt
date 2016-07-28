@@ -1,0 +1,4 @@
+no puedes irte abajo del suelo
+puedes mover con el mouse
+la "interfaz grafica" (menus) esta mejorada
+datos del denue
