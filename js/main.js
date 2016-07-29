@@ -85,10 +85,28 @@
 		  clock = new THREE.Clock(),
 
 		  activateDataViz,
-		  deactivateDataViz;
+		  deactivateDataViz,
       current_height = DEFAULT_HEIGHT;
 
-	function startMoving() {
+
+  //TODO
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(updatePosition);
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+  }
+
+  function updatePosition(position) {
+    START_LAT = position.coords.latitude;
+    START_LON = position.coords.longitude;
+    console.log( "Latitude: " + position.coords.latitude +
+                 "<br>Longitude: " + position.coords.longitude);
+  }
+  getLocation();
+
+  function startMoving() {
 		if (!moving) {
 			// start moving in whichever direction the camera is looking
 			moveVector.set(0, 0, -1).applyQuaternion(camera.quaternion);
