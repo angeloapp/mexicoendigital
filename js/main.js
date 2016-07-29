@@ -356,8 +356,8 @@
 
 	function initDataViz() {
 		var defaultLayers = [
-      'ecobici',
-      'wifi',
+      //'ecobici',
+      //'wifi',
 				//'population'/*,
 				'buildings',
 				'map'//*/

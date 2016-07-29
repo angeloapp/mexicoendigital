@@ -2,7 +2,7 @@
 	"input": {
 		"type": "BlueprintInputCSV",
 		"options": {
-			"path": "data/ecobici.csv"
+			"path": "data\/ecobici.csv"
 		}
 	},
 	"output": {
