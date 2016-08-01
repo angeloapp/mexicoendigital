@@ -41,12 +41,12 @@
 (defn denue-keys [m]
   (s/join "," (map name (keys (digitalize (zipmap (keys m) (keys m)))))))
 
-(def categorias-top (filter #(> 100 (read-string (:codigo %))) scian))
+(def cats1 (filter #(> 100 (read-string (:codigo %))) scian))
 
 (defn assoc-cat [cat order]
   (assoc cat (keyword (str "codigo-" order)) (s/join (take order (:codigo cat)))))
 
-(def categorias-2
+(def cats2
   (let [dos (filter #(> 1000 (read-string (:codigo %))) scian)
         uno (filter #(> 100 (read-string (:codigo %))) scian)]
     (map #(assoc-cat % 2)
@@ -143,9 +143,13 @@
   [data cats1 cats2]
   (let [cats1& (add-slug cats1)
         cats2& (add-slug cats2)]
-    ;(make-category-files data cats2)
-    (map vizi-add-denue
-         (map :nombre cats2&))
-    (map #(make-dataviz (:nombre %) (map :nombre (busca-cat cats2& (:codigo %))))
-         cats1&)))
+    (doall (make-category-files data cats2))
+    (doall (map vizi-add-denue
+                (map :nombre cats2&)))
+    (doall (map #(make-dataviz (:nombre %) (map :nombre (busca-cat cats2& (:codigo %))))
+                cats1&))
+    (let [cats (concat cats1 cats2)]
+      (options (zipmap (map #(idiomatic-string (:nombre %))
+                            cats)
+                       (map :nombre cats))))))
     ; falta agregar al html del menu)

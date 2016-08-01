@@ -15,7 +15,7 @@
 
 			"materialType": "MeshPhongMaterial",
 			"materialOptions": {
-				"transparent": true,
+				"transparent": false,
 				"opacity": 0.4,
 				"color": 6736896,
 				"emissive": 6736896

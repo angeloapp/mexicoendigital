@@ -1,8 +1,9 @@
 window.dataViz('transportes-correos-y-almacenamiento', {
-layers: {
-'transportes-correos-y-almacenamiento': true
-},
-info: [
-'<div></div>'
-].join('')
-});
+	layers: {
+		'servicios-de-mensajeria-y-paqueteria': true,
+		'servicios-postales': true,
+		'servicios-de-almacenamiento': true
+	},
+	info: [
+		'<div></div>'
+	].join('')});
