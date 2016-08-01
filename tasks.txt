@@ -1,4 +1,14 @@
-no puedes irte abajo del suelo
 puedes mover con el mouse
 la "interfaz grafica" (menus) esta mejorada
-datos del denue
+datos del denue con categorias y sub
+como hacer tiles + category + full text search geo en mongo
+json pretty print
+poner iconos
+implementar el movimiento de in out bien
+
+
+mejorar la navegacion de que si vas avanzando y giras no cambia de direccion
+
+
+(defn lat [s] (re-find #"lat[a-z]+" s))
+(defn lon [s] (re-find #"lon[a-z]+" s))

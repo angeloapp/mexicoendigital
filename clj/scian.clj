@@ -27,17 +27,30 @@
 
 
 
-(def df (csv "/Users/nex/github/webvr-cities/data/denue-cdmx.csv"))
-(def scian (csv "/Users/nex/git/dora/scian.csv"))
+(def df (csv "denue.csv"))
+(def scian (csv "scian.csv"))
 
 (defn busca-categoria [data cat]
   (filter #(.startsWith  (:codigo-de-la-clase-de-actividad-scian %) cat)
+          data))
+
+(defn busca-cat [data cat]
+  (filter #(.startsWith  (:codigo %) cat)
           data))
 
 (defn denue-keys [m]
   (s/join "," (map name (keys (digitalize (zipmap (keys m) (keys m)))))))
 
 (def categorias-top (filter #(> 100 (read-string (:codigo %))) scian))
+
+(defn assoc-cat [cat order]
+  (assoc cat (keyword (str "codigo-" order)) (s/join (take order (:codigo cat)))))
+
+(def categorias-2
+  (let [dos (filter #(> 1000 (read-string (:codigo %))) scian)
+        uno (filter #(> 100 (read-string (:codigo %))) scian)]
+    (map #(assoc-cat % 2)
+         (difference (set dos) (set uno)))))
 
 (defn csv-codigo [data codigo]
   (csv (str "denue/" codigo ".csv")
@@ -49,12 +62,10 @@
 (defn merge-csvs [a & others]
   (csv a (apply concat (csv a) (map csv others)))) ;TODO remove others
 
-
 (defn categorias-menu
   [nombres]
   (zipmap (map #(-> % standard-keyword name) nombres)
           nombres))
-
 
 (def codigos '({:codigo "11",
                :nombre
@@ -120,3 +131,21 @@
   (pmap (fn [[id nombre]] (csv (str "denue/" nombre ".csv")
                         (busca-categoria data id)))
        (categorias-csv-renames codigos)))
+
+(defn idiomatic-string [s]
+  (name (standard-keyword s)))
+
+(defn add-slug [cats]
+  (map #(assoc % :nombre (idiomatic-string (:nombre %)))
+       cats))
+
+(defn second-level-resolution
+  [data cats1 cats2]
+  (let [cats1& (add-slug cats1)
+        cats2& (add-slug cats2)]
+    ;(make-category-files data cats2)
+    (map vizi-add-denue
+         (map :nombre cats2&))
+    (map #(make-dataviz (:nombre %) (map :nombre (busca-cat cats2& (:codigo %))))
+         cats1&)))
+    ; falta agregar al html del menu)
