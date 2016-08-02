@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ fabricacion-de-productos-metalicos.csv"
+      "path" : "data/denue/fabricacion-de-productos-metalicos.csv"
     }
   },
   "output" : {

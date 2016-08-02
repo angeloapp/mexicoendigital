@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ servicios-de-apoyo-a-los-negocios.csv"
+      "path" : "data/denue/servicios-de-apoyo-a-los-negocios.csv"
     }
   },
   "output" : {

@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ servicios-profesionales-cientificos-y-tecnicos.csv"
+      "path" : "data/denue/servicios-profesionales-cientificos-y-tecnicos.csv"
     }
   },
   "output" : {

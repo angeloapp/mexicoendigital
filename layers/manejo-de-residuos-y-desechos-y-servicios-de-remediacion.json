@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ manejo-de-residuos-y-desechos-y-servicios-de-remediacion.csv"
+      "path" : "data/denue/manejo-de-residuos-y-desechos-y-servicios-de-remediacion.csv"
     }
   },
   "output" : {

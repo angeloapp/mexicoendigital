@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ servicios-de-entretenimiento-en-instalaciones-recreativas-y-otros-servicios-recreativos.csv"
+      "path" : "data/denue/servicios-de-entretenimiento-en-instalaciones-recreativas-y-otros-servicios-recreativos.csv"
     }
   },
   "output" : {

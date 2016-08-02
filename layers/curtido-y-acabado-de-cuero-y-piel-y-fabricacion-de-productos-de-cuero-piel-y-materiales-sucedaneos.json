@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ curtido-y-acabado-de-cuero-y-piel-y-fabricacion-de-productos-de-cuero-piel-y-materiales-sucedaneos.csv"
+      "path" : "data/denue/curtido-y-acabado-de-cuero-y-piel-y-fabricacion-de-productos-de-cuero-piel-y-materiales-sucedaneos.csv"
     }
   },
   "output" : {

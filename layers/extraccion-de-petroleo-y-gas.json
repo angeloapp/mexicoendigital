@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ extraccion-de-petroleo-y-gas.csv"
+      "path" : "data/denue/extraccion-de-petroleo-y-gas.csv"
     }
   },
   "output" : {

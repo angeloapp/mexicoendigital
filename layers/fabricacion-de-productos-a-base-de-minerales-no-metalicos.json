@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ fabricacion-de-productos-a-base-de-minerales-no-metalicos.csv"
+      "path" : "data/denue/fabricacion-de-productos-a-base-de-minerales-no-metalicos.csv"
     }
   },
   "output" : {

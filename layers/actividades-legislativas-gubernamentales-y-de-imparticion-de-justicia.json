@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ actividades-legislativas-gubernamentales-y-de-imparticion-de-justicia.csv"
+      "path" : "data/denue/actividades-legislativas-gubernamentales-y-de-imparticion-de-justicia.csv"
     }
   },
   "output" : {

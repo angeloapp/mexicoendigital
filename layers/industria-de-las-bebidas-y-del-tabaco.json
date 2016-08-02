@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ industria-de-las-bebidas-y-del-tabaco.csv"
+      "path" : "data/denue/industria-de-las-bebidas-y-del-tabaco.csv"
     }
   },
   "output" : {

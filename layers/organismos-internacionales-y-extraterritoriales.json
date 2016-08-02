@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ organismos-internacionales-y-extraterritoriales.csv"
+      "path" : "data/denue/organismos-internacionales-y-extraterritoriales.csv"
     }
   },
   "output" : {

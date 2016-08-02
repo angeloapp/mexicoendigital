@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ transporte-turistico.csv"
+      "path" : "data/denue/transporte-turistico.csv"
     }
   },
   "output" : {

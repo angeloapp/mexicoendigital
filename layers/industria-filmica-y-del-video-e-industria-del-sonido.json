@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ industria-filmica-y-del-video-e-industria-del-sonido.csv"
+      "path" : "data/denue/industria-filmica-y-del-video-e-industria-del-sonido.csv"
     }
   },
   "output" : {

@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ museos-sitios-historicos-zoologicos-y-similares.csv"
+      "path" : "data/denue/museos-sitios-historicos-zoologicos-y-similares.csv"
     }
   },
   "output" : {

@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ comercio-al-por-menor-de-productos-textiles-bisuteria-accesorios-de-vestir-y-calzado.csv"
+      "path" : "data/denue/comercio-al-por-menor-de-productos-textiles-bisuteria-accesorios-de-vestir-y-calzado.csv"
     }
   },
   "output" : {

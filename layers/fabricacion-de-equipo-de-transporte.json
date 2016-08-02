@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ fabricacion-de-equipo-de-transporte.csv"
+      "path" : "data/denue/fabricacion-de-equipo-de-transporte.csv"
     }
   },
   "output" : {

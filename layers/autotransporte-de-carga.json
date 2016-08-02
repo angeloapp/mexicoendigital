@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ autotransporte-de-carga.csv"
+      "path" : "data/denue/autotransporte-de-carga.csv"
     }
   },
   "output" : {

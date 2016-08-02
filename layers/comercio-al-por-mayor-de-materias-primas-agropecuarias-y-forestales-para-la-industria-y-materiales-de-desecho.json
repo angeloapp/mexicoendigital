@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ comercio-al-por-mayor-de-materias-primas-agropecuarias-y-forestales-para-la-industria-y-materiales-de-desecho.csv"
+      "path" : "data/denue/comercio-al-por-mayor-de-materias-primas-agropecuarias-y-forestales-para-la-industria-y-materiales-de-desecho.csv"
     }
   },
   "output" : {

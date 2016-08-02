@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ industria-alimentaria.csv"
+      "path" : "data/denue/industria-alimentaria.csv"
     }
   },
   "output" : {

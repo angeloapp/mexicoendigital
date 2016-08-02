@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ trabajos-especializados-para-la-construccion.csv"
+      "path" : "data/denue/trabajos-especializados-para-la-construccion.csv"
     }
   },
   "output" : {

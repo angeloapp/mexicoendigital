@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ servicios-de-alquiler-de-bienes-muebles.csv"
+      "path" : "data/denue/servicios-de-alquiler-de-bienes-muebles.csv"
     }
   },
   "output" : {

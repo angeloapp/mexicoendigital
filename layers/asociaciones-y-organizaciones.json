@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ asociaciones-y-organizaciones.csv"
+      "path" : "data/denue/asociaciones-y-organizaciones.csv"
     }
   },
   "output" : {

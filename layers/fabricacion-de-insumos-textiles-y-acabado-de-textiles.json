@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ fabricacion-de-insumos-textiles-y-acabado-de-textiles.csv"
+      "path" : "data/denue/fabricacion-de-insumos-textiles-y-acabado-de-textiles.csv"
     }
   },
   "output" : {

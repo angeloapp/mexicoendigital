@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ procesamiento-electronico-de-informacion-hospedaje-y-otros-servicios-relacionados.csv"
+      "path" : "data/denue/procesamiento-electronico-de-informacion-hospedaje-y-otros-servicios-relacionados.csv"
     }
   },
   "output" : {

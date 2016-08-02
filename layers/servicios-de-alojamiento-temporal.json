@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ servicios-de-alojamiento-temporal.csv"
+      "path" : "data/denue/servicios-de-alojamiento-temporal.csv"
     }
   },
   "output" : {

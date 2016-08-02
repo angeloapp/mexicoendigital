@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ servicios-de-preparacion-de-alimentos-y-bebidas.csv"
+      "path" : "data/denue/servicios-de-preparacion-de-alimentos-y-bebidas.csv"
     }
   },
   "output" : {

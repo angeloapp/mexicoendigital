@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ comercio-al-por-mayor-de-productos-farmaceuticos-de-perfumeria-articulos-para-el-esparcimiento-electrodomesticos-menores-y-aparatos-de-linea-blanca.csv"
+      "path" : "data/denue/comercio-al-por-mayor-de-productos-farmaceuticos-de-perfumeria-articulos-para-el-esparcimiento-electrodomesticos-menores-y-aparatos-de-linea-blanca.csv"
     }
   },
   "output" : {

@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ servicios-medicos-de-consulta-externa-y-servicios-relacionados.csv"
+      "path" : "data/denue/servicios-medicos-de-consulta-externa-y-servicios-relacionados.csv"
     }
   },
   "output" : {

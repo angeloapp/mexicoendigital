@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ suministro-de-agua-y-suministro-de-gas-por-ductos-al-consumidor-final.csv"
+      "path" : "data/denue/suministro-de-agua-y-suministro-de-gas-por-ductos-al-consumidor-final.csv"
     }
   },
   "output" : {

@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ servicios-artisticos-culturales-y-deportivos-y-otros-servicios-relacionados.csv"
+      "path" : "data/denue/servicios-artisticos-culturales-y-deportivos-y-otros-servicios-relacionados.csv"
     }
   },
   "output" : {

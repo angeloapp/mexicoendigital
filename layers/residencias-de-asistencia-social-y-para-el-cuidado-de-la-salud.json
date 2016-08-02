@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ residencias-de-asistencia-social-y-para-el-cuidado-de-la-salud.csv"
+      "path" : "data/denue/residencias-de-asistencia-social-y-para-el-cuidado-de-la-salud.csv"
     }
   },
   "output" : {

@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ actividades-bursatiles-cambiarias-y-de-inversion-financiera.csv"
+      "path" : "data/denue/actividades-bursatiles-cambiarias-y-de-inversion-financiera.csv"
     }
   },
   "output" : {

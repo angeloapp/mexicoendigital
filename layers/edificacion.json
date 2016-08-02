@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ edificacion.csv"
+      "path" : "data/denue/edificacion.csv"
     }
   },
   "output" : {

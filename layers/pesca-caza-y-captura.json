@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ pesca-caza-y-captura.csv"
+      "path" : "data/denue/pesca-caza-y-captura.csv"
     }
   },
   "output" : {

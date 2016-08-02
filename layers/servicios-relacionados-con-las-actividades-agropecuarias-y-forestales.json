@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ servicios-relacionados-con-las-actividades-agropecuarias-y-forestales.csv"
+      "path" : "data/denue/servicios-relacionados-con-las-actividades-agropecuarias-y-forestales.csv"
     }
   },
   "output" : {

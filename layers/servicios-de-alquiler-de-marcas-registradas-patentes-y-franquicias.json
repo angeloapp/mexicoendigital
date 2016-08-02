@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ servicios-de-alquiler-de-marcas-registradas-patentes-y-franquicias.csv"
+      "path" : "data/denue/servicios-de-alquiler-de-marcas-registradas-patentes-y-franquicias.csv"
     }
   },
   "output" : {

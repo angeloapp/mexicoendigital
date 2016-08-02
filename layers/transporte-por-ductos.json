@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ transporte-por-ductos.csv"
+      "path" : "data/denue/transporte-por-ductos.csv"
     }
   },
   "output" : {

@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ telecomunicaciones.csv"
+      "path" : "data/denue/telecomunicaciones.csv"
     }
   },
   "output" : {

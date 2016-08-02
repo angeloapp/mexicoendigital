@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ mineria-de-minerales-metalicos-y-no-metalicos-excepto-petroleo-y-gas.csv"
+      "path" : "data/denue/mineria-de-minerales-metalicos-y-no-metalicos-excepto-petroleo-y-gas.csv"
     }
   },
   "output" : {

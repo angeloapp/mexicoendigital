@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ hospitales.csv"
+      "path" : "data/denue/hospitales.csv"
     }
   },
   "output" : {
@@ -17,7 +17,6 @@
         "opacity" : 0.4,
         "color" : 16711680,
         "emissive" : 16711680
-
       }
     }
   },

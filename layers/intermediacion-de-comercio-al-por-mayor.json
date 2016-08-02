@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ intermediacion-de-comercio-al-por-mayor.csv"
+      "path" : "data/denue/intermediacion-de-comercio-al-por-mayor.csv"
     }
   },
   "output" : {

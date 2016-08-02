@@ -2,7 +2,7 @@
   "input" : {
     "type" : "BlueprintInputCSV",
     "options" : {
-      "path" : "data/denue/ edicion-de-periodicos-revistas-libros-software-y-otros-materiales-y-edicion-de-estas-publicaciones-integrada-con-la-impresion.csv"
+      "path" : "data/denue/edicion-de-periodicos-revistas-libros-software-y-otros-materiales-y-edicion-de-estas-publicaciones-integrada-con-la-impresion.csv"
     }
   },
   "output" : {
