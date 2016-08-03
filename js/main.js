@@ -7,8 +7,8 @@
 
 		  DEFAULT_HEIGHT = 130,
 		  FOG = 250,
-		  MOVE_SPEED = 300,
-		  SLOW_SPEED = MOVE_SPEED / 4,
+		  MOVE_SPEED = 1500,
+		  SLOW_SPEED = MOVE_SPEED / 2,
 		  CITY_SCALE = 6,
 		  COLLISION_RADIUS = 1,
 		  NEAR = 1,
@@ -154,15 +154,15 @@
 
 		if (vrControls.freeze) {
 			if (keys.a) { //look left
-				lookLongitude -= Math.PI * delta / 5;
+				lookLongitude -= Math.PI * delta / 4;
 			} else if (keys.d) { //look right
-				lookLongitude += Math.PI * delta / 5;
+				lookLongitude += Math.PI * delta / 4;
 			}
 
 			if (keys.w) { //look up
-				lookLatitude = Math.min(0.8 * Math.PI / 2, lookLatitude + Math.PI * delta / 5);
+				lookLatitude = Math.min(0.9 * Math.PI / 2, lookLatitude + Math.PI * delta / 5);
 			} else if (keys.s) { //look down
-				lookLatitude = Math.max(-0.8 * Math.PI / 2, lookLatitude - Math.PI * delta / 5);
+				lookLatitude = Math.max(-0.9 * Math.PI / 2, lookLatitude - Math.PI * delta / 5);
 			}
 
 			lookTarget.y = Math.sin(lookLatitude);
@@ -244,6 +244,14 @@
 		} else {
 			VIZI.Messenger.emit('controls:move', new VIZI.Point(body.position.x, body.position.z));
 		}
+
+    // update zoom movement
+    if (keys.i){
+      updateHeight( current_height - MOVE_SPEED / 100);
+    }
+    if (keys.o){
+      updateHeight( current_height + MOVE_SPEED / 100);
+    }
 
 		viziWorld.onTick(delta);
 
@@ -987,9 +995,11 @@
 			} else if (evt.keyCode === 13) {
 				vrEffect.requestFullScreen();
 			} else if (evt.keyCode === 'I'.charCodeAt(0)) {
-        updateHeight( current_height - 1.3);
+        keys.i = true;
+        keys.o = false;
       } else if (evt.keyCode === 'O'.charCodeAt(0)) {
-        updateHeight( current_height + 1.3);
+        keys.o = true;
+        keys.i = false;
       } else if (evt.keyCode === 'C'.charCodeAt(0)) {
         controles = !controles;
         if (controles) {
@@ -1037,9 +1047,9 @@
 				keys.d = false;
 				stopMoving();
 			} else if (evt.keyCode === 'I'.charCodeAt(0)) {
-
+        keys.i = false;
       } else if (evt.keyCode === 'O'.charCodeAt(0)) {
-
+        keys.o = false;
       }
 		}, false);
 
