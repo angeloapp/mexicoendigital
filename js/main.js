@@ -358,6 +358,7 @@
 		var defaultLayers = [
       'ecobici',
       'hospitales',
+      'museos-sitios-historicos-zoologicos-y-similares',
       //'wifi',
 				//'population'/*,
 				'buildings',

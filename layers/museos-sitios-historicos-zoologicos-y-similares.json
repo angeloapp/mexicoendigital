@@ -15,8 +15,8 @@
       "materialOptions" : {
         "transparent" : false,
         "opacity" : 0.4,
-        "color" : 4473328,
-        "emissive" : 4473328
+        "color" : 65535,
+        "emissive" : 65535
       }
     }
   },
