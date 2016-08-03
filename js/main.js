@@ -991,13 +991,13 @@
       } else if (evt.keyCode === 'O'.charCodeAt(0)) {
         updateHeight( current_height + 1.3);
       } else if (evt.keyCode === 'C'.charCodeAt(0)) {
+        controles = !controles;
         if (controles) {
           document.getElementById("controles").style.visibility = "visible";
         }
         else {
           document.getElementById("controles").style.visibility = "hidden";
         }
-        controles = !controles;
       } else if (evt.keyCode === 'F'.charCodeAt(0)) {
 			  var fullScreenElement = renderer.domElement,
 				    requestFullscreen = fullScreenElement.webkitRequestFullscreen ||
