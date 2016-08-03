@@ -40,9 +40,9 @@
     * QuadTree data structure.
     * @class QuadTree
     * @constructor
-    * @param {Object} An object representing the bounds of the top level of the QuadTree. The object 
+    * @param {Object} An object representing the bounds of the top level of the QuadTree. The object
     * should contain the following properties : x, y, width, height
-    * @param {Boolean} pointQuad Whether the QuadTree will contain points (true), or items with bounds 
+    * @param {Boolean} pointQuad Whether the QuadTree will contain points (true), or items with bounds
     * (width / height)(false). Default value is false.
     * @param {Number} maxDepth The maximum number of levels that the quadtree will create. Default is 4.
     * @param {Number} maxChildren The maximum number of children that a node can contain before it is split into sub-nodes.
@@ -70,7 +70,7 @@
     /**
     * Inserts an item into the QuadTree.
     * @method insert
-    * @param {Object|Array} item The item or Array of items to be inserted into the QuadTree. The item should expose x, y 
+    * @param {Object|Array} item The item or Array of items to be inserted into the QuadTree. The item should expose x, y
     * properties that represents its position in 2D space.
     **/
     QuadTree.prototype.insert = function (item) {
@@ -162,7 +162,7 @@
         var len = this.children.length;
         if (!(this._depth >= this._maxDepth) &&
                 len > this._maxChildren) {
-            
+
             this.subdivide();
 
             var i;
@@ -266,7 +266,7 @@
         this.children.length = 0;
 
         var len = this.nodes.length;
-        
+
         var i;
         for (i = 0; i < len; i++) {
             this.nodes[i].clear();
@@ -274,7 +274,7 @@
 
         this.nodes.length = 0;
     };
-    
+
 
     /******************** BoundsQuadTree ****************/
 
@@ -302,9 +302,9 @@
                     item.x + item.width <= node._bounds.x + node._bounds.width &&
                     item.y >= node._bounds.y &&
                     item.y + item.height <= node._bounds.y + node._bounds.height) {
-                
+
                 this.nodes[index].insert(item);
-                
+
             } else {
                 this._stuckChildren.push(item);
             }
@@ -318,7 +318,7 @@
 
         if (!(this._depth >= this._maxDepth) &&
                 len > this._maxChildren) {
-            
+
             this.subdivide();
 
             var i;
@@ -345,7 +345,7 @@
                     item.x + item.width <= node._bounds.x + node._bounds.width &&
                     item.y >= node._bounds.y &&
                     item.y + item.height <= node._bounds.y + node._bounds.height) {
-                
+
                 out.push.apply(out, this.nodes[index].retrieve(item));
             } else {
                 //Part of the item are overlapping multiple child nodes. For each of the overlapping nodes, return all containing objects.
@@ -354,17 +354,17 @@
                     if (item.y <= this.nodes[Node.BOTTOM_LEFT]._bounds.y) {
                         out.push.apply(out, this.nodes[Node.TOP_LEFT].getAllContent());
                     }
-                    
+
                     if (item.y + item.height > this.nodes[Node.BOTTOM_LEFT]._bounds.y) {
                         out.push.apply(out, this.nodes[Node.BOTTOM_LEFT].getAllContent());
                     }
                 }
-                
+
                 if (item.x + item.width > this.nodes[Node.TOP_RIGHT]._bounds.x) {//position+width bigger than middle x
                     if (item.y <= this.nodes[Node.BOTTOM_RIGHT]._bounds.y) {
                         out.push.apply(out, this.nodes[Node.TOP_RIGHT].getAllContent());
                     }
-                    
+
                     if (item.y + item.height > this.nodes[Node.BOTTOM_RIGHT]._bounds.y) {
                         out.push.apply(out, this.nodes[Node.BOTTOM_RIGHT].getAllContent());
                     }
@@ -382,7 +382,7 @@
     BoundsNode.prototype.getAllContent = function () {
         var out = this._out;
         if (this.nodes.length) {
-            
+
             var i;
             for (i = 0; i < this.nodes.length; i++) {
                 this.nodes[i].getAllContent();
