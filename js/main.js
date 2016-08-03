@@ -86,7 +86,9 @@
 
 		  activateDataViz,
 		  deactivateDataViz,
-      current_height = DEFAULT_HEIGHT;
+      current_height = DEFAULT_HEIGHT,
+
+      controles = false;
 
 
   //TODO
@@ -988,6 +990,14 @@
         updateHeight( current_height - 1.3);
       } else if (evt.keyCode === 'O'.charCodeAt(0)) {
         updateHeight( current_height + 1.3);
+      } else if (evt.keyCode === 'C'.charCodeAt(0)) {
+        if (controles) {
+          document.getElementById("controles").style.visibility = "visible";
+        }
+        else {
+          document.getElementById("controles").style.visibility = "hidden";
+        }
+        controles = !controles;
       }
 		}, false);
 
