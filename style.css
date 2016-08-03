@@ -6,7 +6,7 @@
     background-position: center;
 }
 
-#cortinilla0{
+#loading{
     background-color:#fff;
     background-image: url("images/ring-alt.gif");
 }
@@ -23,13 +23,18 @@
 
 }
 
-#controles{
+.controles{
     //background-color:#fff;
     background-image: url("images/controles.png");
     background-size: 80%;
     visibility: hidden;
     opacity: 0.9;
-
+}
+#controles{
+    background-image: url("images/controles.png");
+    background-size: 80%;
+    visibility: hidden;
+    opacity: 0.9;
 }
 
 #controls{

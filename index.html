@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		  <title>Mapa Virtual de la República Mexicana</title>
+		  <title>Mapa virtual de México</title>
 		<meta charset="utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE-edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 		<link rel="stylesheet" href="style.css">
     <body>
-        <div class="cortinilla" id="cortinilla0"></div>
+        <div class="cortinilla" id="loading"></div>
 
 		<div id="controls">
 			<div id="dataviz-info"></div>
@@ -38,7 +38,7 @@
           <option value="comercio-al-por-mayor-de-abarrotes-alimentos-bebidas-hielo-y-tabaco">Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco</option>
           <option value="pesca-caza-y-captura">Pesca, caza y captura</option>
           <option value="servicios-de-apoyo-a-los-negocios">Servicios de apoyo a los negocios</option>
-          <option value="fabricacion-de-equipo-de-computacion-comunicacion-medicion-y-de-otros-equipos-componentes-y-accesorios-electronicos">Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos</option>
+          <option value="fabricacion-de-equipo-de-computacion-comunicacion-medicion-y-de-otros-equipos-componentes-y-accesorios-electronicos">Fabricación de equipo de cómputo, comunicación, medición, componentes y accesorios electrónicos</option>
           <option value="servicios-profesionales-cientificos-y-tecnicos">Servicios profesionales, científicos y técnicos</option>
           <option value="generacion-transmision-y-distribucion-de-energia-electrica-suministro-de-agua-y-de-gas-por-ductos-al-consumidor-final">Generación, transmisión y distribución de energía eléctrica, suministro de agua y de gas por ductos al consumidor final</option>
           <option value="comercio-al-por-mayor">Comercio al por mayor</option>
@@ -51,10 +51,10 @@
           <option value="transporte-por-ferrocarril">Transporte por ferrocarril</option>
           <option value="comercio-al-por-mayor-de-productos-textiles-y-calzado">Comercio al por mayor de productos textiles y calzado</option>
           <option value="radio-y-television">Radio y televisión</option>
-          <option value="actividades-legislativas-gubernamentales-de-imparticion-de-justicia-y-de-organismos-internacionales-y-extraterritoriales">Actividades legislativas, gubernamentales, de impartición de justicia y de organismos internacionales y extraterritoriales</option>
+          <option value="actividades-legislativas-gubernamentales-de-imparticion-de-justicia-y-de-organismos-internacionales-y-extraterritoriales">Actividades legislativas, gubernamentales, de impartición de justicia y de organismos internacionales</option>
           <option value="servicios-de-apoyo-a-los-negocios-y-manejo-de-residuos-y-desechos-y-servicios-de-remediacion">Servicios de apoyo a los negocios y manejo de residuos y desechos, y servicios de remediación</option>
           <option value="servicios-de-almacenamiento">Servicios de almacenamiento</option>
-          <option value="comercio-al-por-mayor-de-productos-farmaceuticos-de-perfumeria-articulos-para-el-esparcimiento-electrodomesticos-menores-y-aparatos-de-linea-blanca">Comercio al por mayor de productos farmacéuticos, perfumería, artículos para esparcimiento, electrodomésticos y línea blanca</option>
+          <option value="comercio-al-por-mayor-de-productos-farmaceuticos-de-perfumeria-articulos-para-el-esparcimiento-electrodomesticos-menores-y-aparatos-de-linea-blanca">Mayoreo de productos farmacéuticos, perfumería, artículos de esparcimiento, electrodomésticos y línea blanca</option>
           <option value="servicios-de-alquiler-de-bienes-muebles">Servicios de alquiler de bienes muebles</option>
           <option value="trabajos-especializados-para-la-construccion">Trabajos especializados para la construcción</option>
           <option value="servicios-postales">Servicios postales</option>
@@ -63,7 +63,7 @@
           <option value="servicios-de-esparcimiento-culturales-y-deportivos-y-otros-servicios-recreativos">Servicios de esparcimiento culturales y deportivos, y otros servicios recreativos</option>
           <option value="comercio-al-por-mayor-de-maquinaria-equipo-y-mobiliario-para-actividades-agropecuarias-industriales-de-servicios-y-comerciales-y-de-otra-maquinaria-y-equipo-de-uso-general">Menudeo de maquinaria, equipo y mobiliario para uso agropecuario, industrial, de servicios, comercial</option>
           <option value="fabricacion-de-accesorios-aparatos-electricos-y-equipo-de-generacion-de-energia-electrica">Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica</option>
-          <option value="comercio-al-por-menor-de-enseres-domesticos-computadoras-articulos-para-la-decoracion-de-interiores-y-articulos-usados">Comercio al por menor de enseres domésticos, computadoras, artículos para la decoración de interiores y artículos usados</option>
+          <option value="comercio-al-por-menor-de-enseres-domesticos-computadoras-articulos-para-la-decoracion-de-interiores-y-articulos-usados">Menudeo de enseres domésticos, computadoras, artículos para decoración y artículos usados</option>
           <option value="edificacion">Edificación</option>
           <option value="fabricacion-de-insumos-textiles-y-acabado-de-textiles">Fabricación de insumos textiles y acabado de textiles</option>
           <option value="transporte-turistico">Transporte turístico</option>
@@ -109,7 +109,7 @@
           <option value="transportes-correos-y-almacenamiento">Transportes, correos y almacenamiento</option>
           <option value="servicios-de-alquiler-de-marcas-registradas-patentes-y-franquicias">Servicios de alquiler de marcas registradas, patentes y franquicias</option>
           <option value="industria-de-las-bebidas-y-del-tabaco">Industria de las bebidas y del tabaco</option>
-          <option value="edicion-de-periodicos-revistas-libros-software-y-otros-materiales-y-edicion-de-estas-publicaciones-integrada-con-la-impresion">Edición de periódicos, revistas, libros, software y otros materiales, y edición de estas publicaciones integrada con la impresión</option>
+          <option value="edicion-de-periodicos-revistas-libros-software-y-otros-materiales-y-edicion-de-estas-publicaciones-integrada-con-la-impresion">Edición e impresión de periódicos, revistas, libros, software y otros materiales</option>
           <option value="comercio-al-por-mayor-de-camiones-y-de-partes-y-refacciones-nuevas-para-automoviles-camionetas-y-camiones">Comercio al por mayor de camiones y de partes y refacciones nuevas para automóviles, camionetas y camiones</option>
           <option value="servicios-inmobiliarios">Servicios inmobiliarios</option>
           <option value="fabricacion-de-productos-derivados-del-petroleo-y-del-carbon">Fabricación de productos derivados del petróleo y del carbón</option>
@@ -198,26 +198,38 @@
 		<script src="js/main.js" type="text/javascript"></script>
 
     <!-- cortinillas -->
+    <div class="cortinilla" id="controles"></div>
     <div class="cortinilla" id="cortinilla1"></div>
     <div class="cortinilla" id="cortinilla2"></div>
-    <div class="cortinilla" id="controles"></div>
+    <div class="cortinilla" id="cortBlanca"></div>
     <script type="text/javascript">
      function showIt() {
-         document.getElementById("cortinilla1").style.visibility = "visible";
-         document.getElementById("cortinilla0").style.visibility = "hidden";
+         document.getElementById("controles").style.backgroundColor = "#fff";
+         document.getElementById("controles").style.opacity = "1";
+         document.getElementById("controles").style.visibility = "visible";
+         document.getElementById("loading").style.visibility = "hidden";
      }
-     setTimeout("showIt()", 4000); // after 1.250 sec
+     showIt();
+     function showIt1() {
+         document.getElementById("cortinilla1").style.visibility = "visible";
+         document.getElementById("controles").style.visibility = "hidden";
+         document.getElementById("controles").style.backgroundColor = "transparent";
+         document.getElementById("controles").style.opacity = "0.9";
 
+     }
+     setTimeout("showIt1()", 2000); // after 1.250 sec
+     //showIt1();
      function showIt2() {
         document.getElementById("cortinilla2").style.visibility = "visible";
         document.getElementById("cortinilla1").style.visibility = "hidden";
      }
-     setTimeout("showIt2()", 5000);
+     setTimeout("showIt2()", 3000);
 
      function showIt3() {
          document.getElementById("cortinilla2").style.visibility = "hidden";
+         document.getElementById("cortBlanca").style.visibility = "hidden";
      }
-     setTimeout("showIt3()", 6000);
+     setTimeout("showIt3()", 4000);
     </script>
 	</body>
 </html>
