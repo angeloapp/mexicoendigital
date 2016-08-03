@@ -37,6 +37,10 @@
     opacity: 0.9;
 }
 
+button, input {
+    color: #333;
+}
+
 #controls{
     border-top-right-radius: 25px;
 }
@@ -115,8 +119,8 @@ a:visited {
 }
 
 #infobutton {
-		width: 20px;
-		height: 20px;
+		width: 40px;
+		height: 40px;
 		margin: 10px;
 		float: left;
 		cursor: pointer;
