@@ -998,7 +998,17 @@
           document.getElementById("controles").style.visibility = "hidden";
         }
         controles = !controles;
+      } else if (evt.keyCode === 'F'.charCodeAt(0)) {
+			  var fullScreenElement = renderer.domElement,
+				    requestFullscreen = fullScreenElement.webkitRequestFullscreen ||
+					    fullScreenElement.mozRequestFullScreen ||
+					    fullScreenElement.msRequestFullscreen;
+
+			  if (requestFullscreen) {
+				  requestFullscreen.call(fullScreenElement);
+			  }
       }
+
 		}, false);
 
 		window.addEventListener('keyup', function (evt) {
